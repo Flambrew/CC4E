@@ -20,11 +20,11 @@ main() {
                 if ((op2 = pop()) == 0) printf("err: div by 0\n");
                 else push(pop() / op2);
                 break;
-            case '%': op2 = pop(); push(pop() % op2); break;
+            case '%': op2 = pop(); push((int)pop() % (int)op2); break;
             case '=':
                 op2 = pop();
                 printf("\t%f\n", op2);
-                variable[pop() - VARIABLE + 1] = push(op2);
+                variable[(int)pop() - VARIABLE + 1] = push(op2);
                 break;
             case 'c': clear(); break;
             case 'e': pop(); break;
@@ -39,6 +39,7 @@ getop(s, lim) char s[]; int lim; {
     int i, c;
 
     while ((c = getch()) == ' ' || c == '\t' || c == '\n');
+    if (c >= 'a' && c <= 'z') { s[0] = c; s[1] = '\0'; return VARIABLE; }
     if (c != '.' && (c < '0' || c > '9')) return c;
 
     s[0] = c;

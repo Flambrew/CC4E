@@ -1,11 +1,5 @@
 #include <stdio.h>
 
-main() {
-    double atof();
-    printf("1234.5678e9\n");
-    printf("%.5f\n", atof("1234.5678e9"));
-}
-
 double atof(s) char s[]; {
     unsigned int i, c, decimal, exp;
     double out, power();
