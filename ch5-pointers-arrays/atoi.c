@@ -7,7 +7,7 @@ int *strtoint(char *s) {
     return outp;
 }
 
-int *inttostr
+int *inttostr;
 
 int main() {
     return 0;
